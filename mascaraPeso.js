@@ -18,14 +18,14 @@ function aplicarMascaraPeso(elementId) {
             let formattedValue = '';
 
             if (valor.length > 0) {
-                // Remove pontos extras para reformatar corretamente
+                //Remove pontos extras para reformatar corretamente
                 let numValor = valor.replace(/\./g, '');
 
                 if (numValor.length <= 3) { // 999
                     formattedValue = numValor;
                 } else if (numValor.length <= 6) { // 999.999
                     formattedValue = numValor.substring(0, numValor.length - 3) + '.' + numValor.substring(numValor.length - 3);
-                } else { // Limita a 999.999
+                } else { //Limita a 999.999
                     formattedValue = numValor.substring(0, 3) + '.' + numValor.substring(3, 6);
                 }
             }
@@ -33,13 +33,13 @@ function aplicarMascaraPeso(elementId) {
             pesoInput.value = formattedValue;
         };
 
-        // Aplica a máscara no input (enquanto digita)
+        //Aplica a máscara no input (enquanto digita)
         pesoInput.addEventListener("input", formatarValor);
 
-        // Aplica a máscara no blur (quando perde o foco), garantindo o formato final
+        //Aplica a máscara no blur (quando perde o foco), garantindo o formato final
         pesoInput.addEventListener("blur", formatarValor);
 
-        // Chamada inicial para formatar o valor já existente ao carregar a página
+        //Chamada inicial para formatar o valor já existente ao carregar a página
         formatarValor();
     }
 }
