@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Padrão de Design Factory</title>
+    <script>
+
+      //hardcoding-----------------------------//
+      let Bicicleta1 = {
+        cor: "Branca",
+        marcha: "Única",
+        aro: 12,
+        pedalar() {
+          console.log("Pedalar executado");
+        }
+      };
+      console.log(Bicicleta1);
+
+      //função factory---------------------------//
+      let BicicletaFactory = function (cor, marcha, aro) {
+        return {
+          cor,   //sintaxe enxuta pois o valor do parâmetro é o mesmo do atributo
+          marcha,
+          aro,
+          pedalar() {
+            console.log("Pedalar executado");
+          },
+        };
+      };
+
+      let Bicicleta2 = BicicletaFactory("Vermelha", "18", 20);
+
+      console.log(Bicicleta2.cor);
+      console.log(Bicicleta2.aro);
+      Bicicleta2.pedalar();
+
+      //o design pattern factory lembra o conceito de interface do Java
+     
+    </script>
+  </head>
+  <body></body>
+</html>
